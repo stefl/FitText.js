@@ -34,7 +34,8 @@
       resizer();
 				
       // Call on resize. Opera debounces their resize by default. 
-      $(window).on('resize', resizer);
+      $(window).on('resize', $.throttle(500, false, function() { resizer(); }));
+
       	
     });
 
